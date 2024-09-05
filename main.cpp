@@ -4,24 +4,30 @@ constexpr int N_ELEMENTS = 100;
 
 int main()
 {
-    int *b = new int[NELEMENTS]; //hibas konstans nev, N_ELEMENTS a helyes
-    std::cout << '1-100 ertekek duplazasa' //nincs ; a sor végén, és ' helyett "" kell
-    for (int i = 0;) // hianyzik a feltetel és a léptetés is
+    int *b = new int[N_ELEMENTS];  //  N_ELEMENTS használva NELEMENTS helyett
+    std::cout << "1-100 ertekek duplazasa" << std::endl;  //  idézőjelek és pontosvessző hozzáadva
+    
+    for (int i = 0; i < N_ELEMENTS; i++)  //  feltétel és léptetés helyes
     {
         b[i] = i * 2;
     }
-    for (int i = 0; i; i++) // mindig hamis feltetel mert az i 0-ról kezd
+
+    for (int i = 0; i < N_ELEMENTS; i++)  //  feltétel módosítva
     {
-        std::cout << "Ertek:" // nincs kiírandó érték + nincs ;
-    }    
-    std::cout << "Atlag szamitasa: " << std::endl;
-    int atlag; // nincs inicializálva az atlag
-    for (int i = 0; i < N_ELEMENTS, i++) // a vessző helytelen, ; kell
-    {
-        atlag += b[i] //nincs pontosvessző 
+        std::cout << "Ertek: " << b[i] << std::endl;  //  értékek kiírása és pontosvessző hozzáadva
     }
+
+    std::cout << "Atlag szamitasa: " << std::endl;
+    int atlag = 0;  //  atlag inicializálva
+
+    for (int i = 0; i < N_ELEMENTS; i++)  //  pontosvessző használva
+    {
+        atlag += b[i];  //  pontosvessző hozzáadva
+    }
+
     atlag /= N_ELEMENTS;
     std::cout << "Atlag: " << atlag << std::endl;
-    //memoria nincs felszabadítva
+
+    delete[] b;  // Memória felszabadítása
     return 0;
 }
