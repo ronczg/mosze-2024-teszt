@@ -29,5 +29,8 @@ int main()
     std::cout << "Atlag: " << atlag << std::endl;
 
     delete[] b;  // Memória felszabadítása
+
+    std::cout << "Szia uram" <<std::endl;
+
     return 0;
 }
